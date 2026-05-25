@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Page Specific Styles - Vietnam Night 2026
+   ========================================================================== */
+
+/* --- Header / Navbar --- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-sm) 0;
+  z-index: 100;
+  background: transparent;
+  transition: background var(--transition-normal);
+}
+
+.header.scrolled {
+  background: rgba(10, 6, 4, 0.9);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all var(--transition-normal);
+}
+
+.header.scrolled .logo {
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+}
+
+.header-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover {
+  color: var(--color-gold-main);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-gold-main);
+  transition: width var(--transition-normal);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- Hero Section --- */
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background-image: url('../assets/hero-bg-notext.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-dark-overlay);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-title {
+  font-size: 4rem;
+  margin-bottom: var(--spacing-md);
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* --- Why Us Section --- */
+.why-us .glass-card {
+  text-align: center;
+  height: 100%;
+}
+
+.why-icon {
+  font-size: 3rem;
+  color: var(--color-gold-main);
+  margin-bottom: var(--spacing-sm);
+}
+
+.why-us h3 {
+  color: var(--color-gold-light);
+}
+
+.why-us p {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+/* --- Privileges Section --- */
+.privileges-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.privilege-list {
+  list-style: none;
+}
+
+.privilege-list li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-secondary);
+}
+
+.privilege-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--color-gold-main);
+}
+
+.privilege-list li strong {
+  color: var(--color-text-primary);
+}
+
+/* --- Sponsorship Packages --- */
+.packages-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-lg);
+}
+
+.package-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.package-card.featured {
+  border-color: var(--color-gold-main);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  background: var(--gradient-gold);
+  color: var(--color-bg-primary);
+  padding: 5px 40px;
+  transform: rotate(45deg);
+  font-weight: bold;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.package-name {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--color-gold-main);
+  text-align: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.package-price {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary);
+}
+
+.package-price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+}
+
+.package-features {
+  list-style: none;
+  margin-bottom: var(--spacing-md);
+  flex-grow: 1;
+}
+
+.package-features li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.package-features li i {
+  color: var(--color-gold-main);
+  font-size: 0.8rem;
+}
+
+/* --- Contact & Footer --- */
+.contact-section {
+  background: var(--color-bg-secondary);
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.contact-info p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.footer {
+  text-align: center;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.4);
+  font-size: 0.8rem;
+}
+
+/* --- Form Messages --- */
+.form-message {
+  margin-top: var(--spacing-sm);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  display: none;
+}
+
+.form-message.success {
+  display: block;
+  background: rgba(46, 204, 113, 0.1);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.form-message.error {
+  display: block;
+  background: rgba(231, 76, 60, 0.1);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .nav-links {
+    display: none; /* simple mobile menu fallback */
+  }
+  .privileges-grid, .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  .package-card.featured {
+    transform: none;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+}

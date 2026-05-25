@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showcase - Vietnam Night 2026</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/design-system.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/showcase.css">
+</head>
+<body>
+
+    <!-- Header (Always scrolled state for inner pages) -->
+    <header class="header scrolled" id="header">
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html"><img src="assets/logo.png" alt="JCI Vietnam Logo" class="header-logo"></a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html#why-us">Tại sao</a>
+                <a href="index.html#privileges">Quyền lợi</a>
+                <a href="index.html#packages">Gói tài trợ</a>
+                <a href="showcase.html" class="text-gold">Showcase</a>
+                <a href="index.html#contact">Liên hệ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="section" style="padding-top: 120px; min-height: 80vh;">
+        <div class="container">
+            <h1 class="section-title">Thư Viện Video Tài Trợ</h1>
+            
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <input type="text" id="searchInput" class="form-control" placeholder="Tìm kiếm tên nhãn hàng (VD: Vinamilk, Honda...)">
+                <select id="packageFilter" class="form-control">
+                    <option value="all">Tất cả các gói tài trợ</option>
+                    <option value="Diamond">Gói Kim Cương</option>
+                    <option value="Gold">Gói Vàng</option>
+                    <option value="Silver">Gói Bạc</option>
+                    <option value="Premium">Gói Premium</option>
+                </select>
+            </div>
+
+            <!-- Video Grid Container -->
+            <div id="showcaseContainer">
+                <!-- Javascript will render content here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="background: var(--color-bg-primary);">
+        <div class="container">
+            <p>&copy; 2026 JCI Vietnam. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/showcase.js"></script>
+</body>
+</html>

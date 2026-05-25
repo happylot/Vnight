@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Showcase Page Styles
+   ========================================================================== */
+
+.filter-bar {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    background: var(--color-bg-secondary);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.filter-bar input {
+    flex: 2;
+}
+
+.filter-bar select {
+    flex: 1;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: 50%;
+}
+
+.filter-bar select option {
+    color: black;
+}
+
+/* Brand Section */
+.brand-section {
+    margin-bottom: var(--spacing-xl);
+    animation: fadeIn 0.5s ease;
+}
+
+.brand-header {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: var(--spacing-xs);
+}
+
+.brand-name {
+    color: var(--color-gold-main);
+    font-size: 2rem;
+    font-family: var(--font-heading);
+}
+
+.brand-package {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--color-gold-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.video-card {
+    background: var(--color-bg-glass);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 177.77%; /* 16:9 Aspect ratio for shorts/tiktok (9:16) -> 16/9 = 177.7% */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.video-title {
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* No results state */
+.no-results {
+    text-align: center;
+    color: var(--color-text-secondary);
+    padding: var(--spacing-xl) 0;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+    }
+}
