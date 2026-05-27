@@ -1,0 +1,62 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Web Directory and Nginx
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            # Create web directory
+            sudo mkdir -p /var/www/aspac2026.jci.vn
+            sudo chown -R $USER:$USER /var/www/aspac2026.jci.vn
+            sudo chmod -R 755 /var/www/aspac2026.jci.vn
+            
+            # Install nginx if it does not exist
+            if ! command -v nginx &> /dev/null; then
+                sudo apt-get update
+                sudo apt-get install -y nginx
+            fi
+            
+            # Create Nginx server block
+            sudo bash -c 'cat > /etc/nginx/sites-available/aspac2026.jci.vn <<EOF
+            server {
+                listen 80;
+                server_name ASPAC2026.jci.vn www.ASPAC2026.jci.vn;
+                
+                root /var/www/aspac2026.jci.vn;
+                index index.html;
+
+                location / {
+                    try_files \$uri \$uri/ =404;
+                }
+            }
+            EOF'
+            
+            # Enable the site and restart Nginx
+            sudo ln -sf /etc/nginx/sites-available/aspac2026.jci.vn /etc/nginx/sites-enabled/
+            sudo systemctl restart nginx
+
+      - name: Copy files to VPS via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USERNAME }}
+          password: ${{ secrets.VPS_PASSWORD }}
+          port: ${{ secrets.VPS_PORT }}
+          source: "*"
+          target: "/var/www/aspac2026.jci.vn/"
