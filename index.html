@@ -26,13 +26,16 @@
             <div class="logo">
                 <img src="assets/logo.png" alt="JCI Vietnam Logo" class="header-logo">
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" id="nav-links">
                 <a href="#why-us">Tại sao</a>
                 <a href="#privileges">Quyền lợi</a>
                 <a href="#packages">Gói tài trợ</a>
                 <a href="showcase.html">Showcase</a>
                 <a href="#contact">Liên hệ</a>
             </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </header>
 
@@ -114,68 +117,33 @@
     <section class="section" id="packages">
         <div class="container">
             <h2 class="section-title">Các Gói Tài Trợ</h2>
-            <div class="packages-container">
+            <div class="packages-container" style="max-width: 900px; margin-inline: auto;">
                 
-                <!-- Basic -->
+                <!-- Gói BASIC -->
                 <div class="glass-card package-card">
                     <h3 class="package-name">BASIC</h3>
-                    <div class="package-price">6<span> Tr VNĐ</span></div>
+                    <div class="package-price">6.000.000<span> VNĐ</span></div>
                     <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Sampling sản phẩm</li>
-                        <li><i class="fas fa-check"></i> Logo Backdrop</li>
-                        <li><i class="fas fa-check"></i> Bài đăng Fanpage đoàn</li>
+                        <li><i class="fas fa-bullhorn"></i> <span><strong>Branding & Quảng bá:</strong> Logo Backdrop chung, 01 bài Fanpage ASPAC 2026, Logo Digital Brochure, 01 gian hàng trên MatchingVietnam.com.</span></li>
+                        <li><i class="fas fa-store"></i> <span><strong>National Night:</strong> Phát mẫu thử (Sampling) hoặc bán trực tiếp, Logo hiển thị trên màn hình LED.</span></li>
+                        <li><i class="fas fa-handshake"></i> <span><strong>Kết nối:</strong> Tiếp cận trực tiếp 2000-3000 đại biểu, nhận danh bạ nội bộ JCI Vietnam.</span></li>
                     </ul>
                     <a href="#contact" class="btn btn-outline">Chọn Gói Này</a>
                 </div>
 
-                <!-- Bạc -->
-                <div class="glass-card package-card">
-                    <h3 class="package-name" style="color: #c0c0c0;">BẠC</h3>
-                    <div class="package-price">15<span> Tr VNĐ</span></div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Video 1 phút</li>
-                        <li><i class="fas fa-check"></i> Gian hàng trưng bày</li>
-                        <li><i class="fas fa-check"></i> Thư cảm ơn từ Chủ tịch</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Chọn Gói Này</a>
-                </div>
-
-                <!-- Diamond / Kim Cương (Featured) -->
+                <!-- Gói MEDIUM -->
                 <div class="glass-card package-card featured">
-                    <div class="featured-badge">ĐẶC BIỆT</div>
-                    <h3 class="package-name" style="color: #b9f2ff;">KIM CƯƠNG</h3>
-                    <div class="package-price" style="color: var(--color-gold-main);">30<span> Tr VNĐ</span></div>
+                    <div class="featured-badge" style="right: -45px;">PREMIUM EXPERIENCE</div>
+                    <h3 class="package-name" style="color: #ff9900;">MEDIUM</h3>
+                    <div class="package-price" style="color: var(--color-gold-main);">10.000.000<span> VNĐ</span></div>
                     <ul class="package-features">
-                        <li><i class="fas fa-star" style="color: #b9f2ff;"></i> <strong>Logo tại Times Square (NY)</strong></li>
-                        <li><i class="fas fa-check"></i> Video 3 phút</li>
-                        <li><i class="fas fa-check"></i> Gian hàng VIP</li>
-                        <li><i class="fas fa-check"></i> MC giới thiệu riêng</li>
+                        <li><i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và bổ sung:</span></li>
+                        <li><i class="fas fa-video"></i> <span><strong>Truyền thông video:</strong> 10s trong video intro sự kiện, 01 video khách hàng nước ngoài trải nghiệm sản phẩm.</span></li>
+                        <li><i class="fas fa-map-marked-alt"></i> <span><strong>Marketing bản địa:</strong> 08 video review dọc thực hiện tại các thắng cảnh nổi tiếng của Nhật Bản.</span></li>
+                        <li><i class="fas fa-user-tie"></i> <span><strong>Hỗ trợ chuyên nghiệp:</strong> 01 MC/PG/PB trực tiếp giới thiệu sản phẩm tại gian hàng.</span></li>
+                        <li><i class="fas fa-award"></i> <span><strong>Vinh danh:</strong> Tổ chức vinh danh nhà tài trợ trang trọng tại sự kiện.</span></li>
                     </ul>
                     <a href="#contact" class="btn btn-primary">Chọn Gói Này</a>
-                </div>
-
-                <!-- Vàng -->
-                <div class="glass-card package-card">
-                    <h3 class="package-name">VÀNG</h3>
-                    <div class="package-price">20<span> Tr VNĐ</span></div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> Video 2 phút</li>
-                        <li><i class="fas fa-check"></i> Gian hàng trưng bày</li>
-                        <li><i class="fas fa-check"></i> Logo trên mọi POSM & Standee</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Chọn Gói Này</a>
-                </div>
-
-                <!-- Premium -->
-                <div class="glass-card package-card">
-                    <h3 class="package-name" style="color: #ff9900;">PREMIUM</h3>
-                    <div class="package-price">10<span> Tr VNĐ</span></div>
-                    <ul class="package-features">
-                        <li><i class="fas fa-check"></i> 08 Video review tại Nhật</li>
-                        <li><i class="fas fa-check"></i> Sampling sản phẩm</li>
-                        <li><i class="fas fa-check"></i> Gian hàng Online</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline">Chọn Gói Này</a>
                 </div>
 
             </div>
@@ -190,9 +158,10 @@
                 <style> .contact-info .section-title::after { left: 0; transform: none; } </style>
                 <p>Kính mời Quý Doanh nghiệp cùng tạo nên một đêm Vietnam Night bùng nổ tại Nhật Bản, khẳng định vị thế thương hiệu Việt trên trường quốc tế.</p>
                 <div style="margin-top: 2rem;">
-                    <p><i class="fas fa-building text-gold"></i> Đơn vị tổ chức: JCI Vietnam</p>
-                    <p><i class="fas fa-phone text-gold"></i> Hotline: [Thông tin liên hệ]</p>
-                    <p><i class="fas fa-envelope text-gold"></i> Email: vp@jci.vn (Placeholder)</p>
+                    <p><i class="fas fa-building text-gold"></i> Đơn vị tổ chức: JCI Grace</p>
+                    <p><i class="fas fa-handshake text-gold"></i> Bảo trợ thông tin: JCI Vietnam</p>
+                    <p><i class="fas fa-phone text-gold"></i> Hotline: 0909802998</p>
+                    <p><i class="fas fa-envelope text-gold"></i> Email: ceo@matchingvietnam.com</p>
                 </div>
             </div>
             
@@ -211,11 +180,8 @@
                     <div class="form-group">
                         <select id="package" class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\"white\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%;">
                             <option value="none" style="color: black;">-- Chọn gói quan tâm --</option>
-                            <option value="diamond" style="color: black;">Gói Kim Cương (30Tr)</option>
-                            <option value="gold" style="color: black;">Gói Vàng (20Tr)</option>
-                            <option value="silver" style="color: black;">Gói Bạc (15Tr)</option>
-                            <option value="premium" style="color: black;">Gói Premium (10Tr)</option>
-                            <option value="basic" style="color: black;">Gói Basic (6Tr)</option>
+                            <option value="medium" style="color: black;">Gói Medium (10.000.000 VNĐ)</option>
+                            <option value="basic" style="color: black;">Gói Basic (6.000.000 VNĐ)</option>
                         </select>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="submitBtn">GỬI THÔNG TIN</button>

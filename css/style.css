@@ -264,13 +264,15 @@
   font-size: 0.9rem;
   color: var(--color-text-secondary);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
+  line-height: 1.5;
 }
 
 .package-features li i {
   color: var(--color-gold-main);
   font-size: 0.8rem;
+  margin-top: 4px;
 }
 
 /* --- Contact & Footer --- */
@@ -321,13 +323,46 @@
   border: 1px solid rgba(231, 76, 60, 0.3);
 }
 
+/* --- Mobile Menu --- */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--color-gold-main);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 5px;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero-title {
     font-size: 2.5rem;
   }
+  .mobile-menu-btn {
+    display: block;
+  }
   .nav-links {
-    display: none; /* simple mobile menu fallback */
+    position: fixed;
+    top: 60px;
+    right: -100%;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: rgba(10, 6, 4, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+    transition: right var(--transition-normal);
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    display: flex;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .section {
+    padding: calc(var(--spacing-md) * 1.5) 0;
   }
   .privileges-grid, .contact-grid {
     grid-template-columns: 1fr;
