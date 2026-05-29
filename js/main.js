@@ -63,8 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const leadForm = document.getElementById('leadForm');
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
+    const toastNotification = document.getElementById('toastNotification');
 
     const LEAD_API_ENDPOINT = '/api/lead.php';
+    let toastTimeoutId;
 
     leadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -95,11 +97,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Thành công
             showMessage('Gửi thông tin thành công! Chúng tôi sẽ liên hệ sớm.', 'success');
+            showToast('Thông tin đã được gửi thành công.', 'success');
             leadForm.reset();
 
         } catch (error) {
             console.error("Lỗi submit form:", error);
-            showMessage(error.message || 'Có lỗi xảy ra, vui lòng thử lại sau.', 'error');
+            const errorMessage = error.message || 'Có lỗi xảy ra, vui lòng thử lại sau.';
+            showMessage(errorMessage, 'error');
+            showToast(errorMessage, 'error');
         } finally {
             // Khôi phục nút
             submitBtn.innerText = originalBtnText;
@@ -111,6 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
     function showMessage(msg, type) {
         formMessage.innerText = msg;
         formMessage.className = `form-message ${type}`;
+    }
+
+    function showToast(msg, type) {
+        if (!toastNotification) {
+            return;
+        }
+
+        window.clearTimeout(toastTimeoutId);
+        toastNotification.innerText = msg;
+        toastNotification.className = `toast-notification ${type} show`;
+
+        toastTimeoutId = window.setTimeout(() => {
+            toastNotification.className = 'toast-notification';
+        }, 4200);
     }
 
     async function submitLead(data) {
