@@ -24,156 +24,155 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare SSH key
-        id: prepare_ssh_key
         env:
           VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }}
         run: |
           set -eu
-          {
-            echo "private_key<<EOF"
-            printf '%s' "$VPS_SSH_KEY_B64" | base64 --decode
-            echo
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          mkdir -p "$HOME/.ssh"
+          printf '%s' "$VPS_SSH_KEY_B64" | base64 --decode > "$HOME/.ssh/aspac2026_deploy_key"
+          chmod 600 "$HOME/.ssh/aspac2026_deploy_key"
 
       - name: Prepare staging directory on VPS
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ steps.prepare_ssh_key.outputs.private_key }}
-          port: ${{ secrets.VPS_PORT }}
-          script: |
-            set -eu
-            mkdir -p "/var/www/aspac2026.jci.vn" "/tmp/aspac2026-release"
-            rm -rf /tmp/aspac2026-release/*
-            if ! command -v rsync >/dev/null 2>&1; then
-              apt-get update
-              apt-get install -y rsync
-            fi
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+        run: |
+          set -eu
+          ssh -i "$HOME/.ssh/aspac2026_deploy_key" \
+            -o StrictHostKeyChecking=no \
+            -p "$VPS_PORT" \
+            "$VPS_USERNAME@$VPS_HOST" \
+            "set -eu; mkdir -p '$DEPLOY_PATH' '$STAGING_PATH'; rm -rf '$STAGING_PATH'/*; if ! command -v rsync >/dev/null 2>&1; then apt-get update && apt-get install -y rsync; fi"
 
       - name: Upload site files
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ steps.prepare_ssh_key.outputs.private_key }}
-          port: ${{ secrets.VPS_PORT }}
-          source: "api,assets,css,js,index.html,showcase.html"
-          target: ${{ env.STAGING_PATH }}
-          overwrite: true
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+        run: |
+          set -eu
+          scp -i "$HOME/.ssh/aspac2026_deploy_key" \
+            -o StrictHostKeyChecking=no \
+            -P "$VPS_PORT" \
+            -r api assets css js index.html showcase.html \
+            "$VPS_USERNAME@$VPS_HOST:$STAGING_PATH/"
 
       - name: Sync release and configure nginx
-        uses: appleboy/ssh-action@v1.2.1
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USERNAME }}
-          key: ${{ steps.prepare_ssh_key.outputs.private_key }}
-          port: ${{ secrets.VPS_PORT }}
-          script: |
-            set -eu
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_USERNAME: ${{ secrets.VPS_USERNAME }}
+        run: |
+          set -eu
+          ssh -i "$HOME/.ssh/aspac2026_deploy_key" \
+            -o StrictHostKeyChecking=no \
+            -p "$VPS_PORT" \
+            "$VPS_USERNAME@$VPS_HOST" <<'EOF'
+          set -eu
 
-            if ! command -v nginx >/dev/null 2>&1; then
-              apt-get update
-              apt-get install -y nginx
-            fi
+          if ! command -v nginx >/dev/null 2>&1; then
+            apt-get update
+            apt-get install -y nginx
+          fi
 
-            rsync -av --delete "/tmp/aspac2026-release/" "/var/www/aspac2026.jci.vn/"
-            chown -R www-data:www-data "/var/www/aspac2026.jci.vn"
-            find "/var/www/aspac2026.jci.vn" -type d -exec chmod 755 {} \;
-            find "/var/www/aspac2026.jci.vn" -type f -exec chmod 644 {} \;
+          rsync -av --delete "/tmp/aspac2026-release/" "/var/www/aspac2026.jci.vn/"
+          chown -R www-data:www-data "/var/www/aspac2026.jci.vn"
+          find "/var/www/aspac2026.jci.vn" -type d -exec chmod 755 {} \;
+          find "/var/www/aspac2026.jci.vn" -type f -exec chmod 644 {} \;
 
-            if [ -f /etc/letsencrypt/live/aspac2026.jci.vn/fullchain.pem ]; then
-              cat <<'EOF' >/etc/nginx/sites-available/aspac2026.jci.vn
-              server {
-                  server_name aspac2026.jci.vn;
+          if [ -f /etc/letsencrypt/live/aspac2026.jci.vn/fullchain.pem ]; then
+            cat <<'NGINX_SSL' >/etc/nginx/sites-available/aspac2026.jci.vn
+          server {
+              server_name aspac2026.jci.vn;
 
-                  root /var/www/aspac2026.jci.vn;
-                  index index.html;
+              root /var/www/aspac2026.jci.vn;
+              index index.html;
 
-                  access_log /var/log/nginx/aspac2026.jci.vn.access.log;
-                  error_log /var/log/nginx/aspac2026.jci.vn.error.log;
+              access_log /var/log/nginx/aspac2026.jci.vn.access.log;
+              error_log /var/log/nginx/aspac2026.jci.vn.error.log;
 
-                  location / {
-                      try_files $uri $uri/ =404;
-                  }
-
-                  location = /api/lead.php {
-                      include snippets/fastcgi-php.conf;
-                      fastcgi_pass unix:/run/php/php8.3-fpm.sock;
-                      fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
-                  }
-
-                  location ~ \.php$ {
-                      return 404;
-                  }
-
-                  location ~* \.(css|js|jpg|jpeg|png|gif|svg|webp|ico)$ {
-                      expires 7d;
-                      add_header Cache-Control "public, max-age=604800, immutable";
-                      try_files $uri =404;
-                  }
-
-                  listen 443 ssl;
-                  listen [::]:443 ssl;
-                  ssl_certificate /etc/letsencrypt/live/aspac2026.jci.vn/fullchain.pem;
-                  ssl_certificate_key /etc/letsencrypt/live/aspac2026.jci.vn/privkey.pem;
-                  include /etc/letsencrypt/options-ssl-nginx.conf;
-                  ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+              location / {
+                  try_files $uri $uri/ =404;
               }
 
-              server {
-                  listen 80;
-                  listen [::]:80;
-                  server_name aspac2026.jci.vn;
-
-                  location = /api/lead.php {
-                      include snippets/fastcgi-php.conf;
-                      fastcgi_pass unix:/run/php/php8.3-fpm.sock;
-                      fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
-                  }
-
-                  location / {
-                      return 301 https://$host$request_uri;
-                  }
+              location = /api/lead.php {
+                  include snippets/fastcgi-php.conf;
+                  fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+                  fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
               }
-              EOF
-            else
-              cat <<'EOF' >/etc/nginx/sites-available/aspac2026.jci.vn
-              server {
-                  listen 80;
-                  listen [::]:80;
-                  server_name aspac2026.jci.vn;
 
-                  root /var/www/aspac2026.jci.vn;
-                  index index.html;
-
-                  access_log /var/log/nginx/aspac2026.jci.vn.access.log;
-                  error_log /var/log/nginx/aspac2026.jci.vn.error.log;
-
-                  location / {
-                      try_files $uri $uri/ =404;
-                  }
-
-                  location = /api/lead.php {
-                      include snippets/fastcgi-php.conf;
-                      fastcgi_pass unix:/run/php/php8.3-fpm.sock;
-                      fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
-                  }
-
-                  location ~ \.php$ {
-                      return 404;
-                  }
-
-                  location ~* \.(css|js|jpg|jpeg|png|gif|svg|webp|ico)$ {
-                      expires 7d;
-                      add_header Cache-Control "public, max-age=604800, immutable";
-                      try_files $uri =404;
-                  }
+              location ~ \.php$ {
+                  return 404;
               }
-              EOF
-            fi
 
-            ln -sfn /etc/nginx/sites-available/aspac2026.jci.vn /etc/nginx/sites-enabled/aspac2026.jci.vn
-            nginx -t
-            systemctl reload nginx
+              location ~* \.(css|js|jpg|jpeg|png|gif|svg|webp|ico)$ {
+                  expires 7d;
+                  add_header Cache-Control "public, max-age=604800, immutable";
+                  try_files $uri =404;
+              }
+
+              listen 443 ssl;
+              listen [::]:443 ssl;
+              ssl_certificate /etc/letsencrypt/live/aspac2026.jci.vn/fullchain.pem;
+              ssl_certificate_key /etc/letsencrypt/live/aspac2026.jci.vn/privkey.pem;
+              include /etc/letsencrypt/options-ssl-nginx.conf;
+              ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+          }
+
+          server {
+              listen 80;
+              listen [::]:80;
+              server_name aspac2026.jci.vn;
+
+              location = /api/lead.php {
+                  include snippets/fastcgi-php.conf;
+                  fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+                  fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
+              }
+
+              location / {
+                  return 301 https://$host$request_uri;
+              }
+          }
+          NGINX_SSL
+          else
+            cat <<'NGINX_HTTP' >/etc/nginx/sites-available/aspac2026.jci.vn
+          server {
+              listen 80;
+              listen [::]:80;
+              server_name aspac2026.jci.vn;
+
+              root /var/www/aspac2026.jci.vn;
+              index index.html;
+
+              access_log /var/log/nginx/aspac2026.jci.vn.access.log;
+              error_log /var/log/nginx/aspac2026.jci.vn.error.log;
+
+              location / {
+                  try_files $uri $uri/ =404;
+              }
+
+              location = /api/lead.php {
+                  include snippets/fastcgi-php.conf;
+                  fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+                  fastcgi_param SCRIPT_FILENAME /var/www/aspac2026.jci.vn/api/lead.php;
+              }
+
+              location ~ \.php$ {
+                  return 404;
+              }
+
+              location ~* \.(css|js|jpg|jpeg|png|gif|svg|webp|ico)$ {
+                  expires 7d;
+                  add_header Cache-Control "public, max-age=604800, immutable";
+                  try_files $uri =404;
+              }
+          }
+          NGINX_HTTP
+          fi
+
+          ln -sfn /etc/nginx/sites-available/aspac2026.jci.vn /etc/nginx/sites-enabled/aspac2026.jci.vn
+          nginx -t
+          systemctl reload nginx
+          EOF
