@@ -28,16 +28,16 @@ jobs:
           VPS_SSH_KEY_B64: ${{ secrets.VPS_SSH_KEY_B64 }}
         run: |
           set -eu
-          mkdir -p "$HOME/.ssh"
-          printf '%s' "$VPS_SSH_KEY_B64" | base64 --decode > "$HOME/.ssh/aspac2026_deploy_key"
-          chmod 600 "$HOME/.ssh/aspac2026_deploy_key"
+          mkdir -p "$GITHUB_WORKSPACE/.github/tmp"
+          printf '%s' "$VPS_SSH_KEY_B64" | base64 --decode > "$GITHUB_WORKSPACE/.github/tmp/aspac2026_deploy_key"
+          chmod 600 "$GITHUB_WORKSPACE/.github/tmp/aspac2026_deploy_key"
 
       - name: Prepare staging directory on VPS
         uses: appleboy/ssh-action@v1.2.1
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
-          key_path: /home/runner/.ssh/aspac2026_deploy_key
+          key_path: /github/workspace/.github/tmp/aspac2026_deploy_key
           port: ${{ secrets.VPS_PORT }}
           script: |
             set -eu
@@ -53,7 +53,7 @@ jobs:
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
-          key_path: /home/runner/.ssh/aspac2026_deploy_key
+          key_path: /github/workspace/.github/tmp/aspac2026_deploy_key
           port: ${{ secrets.VPS_PORT }}
           source: "api,assets,css,js,index.html,showcase.html"
           target: ${{ env.STAGING_PATH }}
@@ -64,7 +64,7 @@ jobs:
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USERNAME }}
-          key_path: /home/runner/.ssh/aspac2026_deploy_key
+          key_path: /github/workspace/.github/tmp/aspac2026_deploy_key
           port: ${{ secrets.VPS_PORT }}
           script: |
             set -eu
