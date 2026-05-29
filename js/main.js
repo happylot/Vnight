@@ -64,10 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
 
-    // MOCK CREDENTIALS - PLEASE REPLACE THESE WITH ACTUAL VALUES
-    const GOOGLE_SHEETS_WEBHOOK_URL = ''; // e.g., 'https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec'
-    const TELEGRAM_BOT_TOKEN = ''; // e.g., '123456789:ABCDefghIJKlmnOPQRstuvwxyz'
-    const TELEGRAM_CHAT_ID = ''; // e.g., '-1001234567890' hay '12345678'
+    const LEAD_API_ENDPOINT = '/api/lead.php';
 
     leadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -94,28 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 throw new Error("Vui lòng điền Tên và Số điện thoại");
             }
 
-            // Gửi dữ liệu (Chạy song song cả 2 task)
-            const tasks = [];
-
-            if (GOOGLE_SHEETS_WEBHOOK_URL) {
-                tasks.push(sendToGoogleSheets(formData));
-            } else {
-                console.warn("Chưa cấu hình Google Sheets Webhook");
-            }
-
-            if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
-                tasks.push(sendToTelegram(formData));
-            } else {
-                console.warn("Chưa cấu hình Telegram Bot");
-            }
-
-            // Đợi tất cả (nếu có cấu hình)
-            if (tasks.length > 0) {
-                await Promise.allSettled(tasks);
-            } else {
-                // Giả lập delay nếu chưa có API thật để user thấy hiệu ứng
-                await new Promise(r => setTimeout(r, 1000));
-            }
+            await submitLead(formData);
 
             // Thành công
             showMessage('Gửi thông tin thành công! Chúng tôi sẽ liên hệ sớm.', 'success');
@@ -137,44 +113,20 @@ document.addEventListener('DOMContentLoaded', () => {
         formMessage.className = `form-message ${type}`;
     }
 
-    async function sendToGoogleSheets(data) {
-        // Thông thường Google Apps Script nhận POST qua FormData hoặc x-www-form-urlencoded
-        const formData = new FormData();
-        for (const key in data) {
-            formData.append(key, data[key]);
+    async function submitLead(data) {
+        const response = await fetch(LEAD_API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+
+        const result = await response.json().catch(() => null);
+        if (!response.ok || !result?.ok) {
+            throw new Error(result?.message || 'Không gửi được thông tin. Vui lòng thử lại sau.');
         }
 
-        return fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
-            method: 'POST',
-            body: formData
-        }).then(res => {
-            if(!res.ok) throw new Error("Lỗi gửi Google Sheet");
-            return res;
-        });
-    }
-
-    async function sendToTelegram(data) {
-        const text = `
-🎯 <b>LEAD MỚI - VIETNAM NIGHT 2026</b>
-- <b>Tên:</b> ${data.name}
-- <b>SĐT:</b> ${data.phone}
-- <b>Email:</b> ${data.email || 'Không có'}
-- <b>Gói quan tâm:</b> ${data.package}
-- <b>Thời gian:</b> ${data.timestamp}
-        `;
-
-        const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-        return fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                chat_id: TELEGRAM_CHAT_ID,
-                text: text,
-                parse_mode: 'HTML'
-            })
-        }).then(res => {
-            if(!res.ok) throw new Error("Lỗi gửi Telegram");
-            return res.json();
-        });
+        return result;
     }
 });
