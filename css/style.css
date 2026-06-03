@@ -145,7 +145,7 @@
 .hero::after {
   background:
     linear-gradient(105deg, rgba(171, 31, 37, 0.88) 0%, rgba(171, 31, 37, 0.56) 18%, transparent 40%),
-    url('../keyvisual.jpg') right center / cover no-repeat;
+    url('../assets/hero-bg-notext.png') right center / cover no-repeat;
   opacity: 0.12;
   mix-blend-mode: multiply;
 }
