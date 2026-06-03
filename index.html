@@ -102,7 +102,7 @@
 
             <div class="hero-visual">
                 <div class="hero-poster-frame">
-                    <img src="assets/hero-bg-notext.png" alt="Vietnam Night 2026 key visual background" class="hero-poster">
+                    <img src="keyvisual.jpg" alt="Vietnam Night 2026 key visual background" class="hero-poster">
                 </div>
                 <div class="hero-poster-note" id="heroPosterNote">Key visual chủ đạo cho chiến dịch Vietnam Night 2026.</div>
             </div>
@@ -176,7 +176,18 @@
     <section class="section" id="packages">
         <div class="container">
             <h2 class="section-title" id="packagesTitle">Các Gói Tài Trợ</h2>
-            <div class="packages-container" style="max-width: 900px; margin-inline: auto;">
+            <div class="packages-container" style="max-width: 1180px; margin-inline: auto;">
+
+                <!-- Gói START -->
+                <div class="glass-card package-card">
+                    <h3 class="package-name">START</h3>
+                    <div class="package-price">3.000.000<span> VNĐ</span></div>
+                    <ul class="package-features">
+                        <li id="startFeature1"><i class="fas fa-file-lines"></i> <span><strong>Trưng bày leaflet:</strong> đặt leaflet thương hiệu tại khu vực giới thiệu sản phẩm của chương trình.</span></li>
+                        <li id="startFeature2"><i class="fas fa-id-card"></i> <span><strong>Thu thập khách quan tâm:</strong> ban tổ chức hỗ trợ collect <strong>10 namecard</strong> của khách quan tâm đến mặt hàng của doanh nghiệp.</span></li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline" id="startCta">Chọn Gói Này</a>
+                </div>
                 
                 <!-- Gói BASIC -->
                 <div class="glass-card package-card">
@@ -190,10 +201,10 @@
                     <a href="#contact" class="btn btn-outline" id="basicCta">Chọn Gói Này</a>
                 </div>
 
-                <!-- Gói MEDIUM -->
+                <!-- Gói PREMIUM -->
                 <div class="glass-card package-card featured">
                     <div class="featured-badge" style="right: -45px;" id="featuredBadge">PREMIUM EXPERIENCE</div>
-                    <h3 class="package-name" style="color: #ff9900;">MEDIUM</h3>
+                    <h3 class="package-name" style="color: #ff9900;">PREMIUM</h3>
                     <div class="package-price" style="color: var(--color-gold-main);">10.000.000<span> VNĐ</span></div>
                     <ul class="package-features">
                         <li id="mediumFeature1"><i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và tăng cường chiều sâu truyền thông:</span></li>
@@ -230,6 +241,7 @@
                         <p id="transferAccountName"><strong>Chủ tài khoản:</strong> CLB DOANH NHAN TRE THE GIOI TAI VIET NAM</p>
                         <p id="transferAccountNumber"><strong>Số tài khoản:</strong> 1050120408</p>
                         <p id="transferBranch"><strong>Chi nhánh:</strong> VCB THU DUC-PGD LINH TRUNG</p>
+                        <p id="transferMemo"><strong>Nội dung CK:</strong> JCI Grace VNN JP</p>
                     </div>
                     <div class="transfer-qr">
                         <img src="qr.jpg" alt="QR chuyển khoản Vietcombank" id="transferQrImage">
@@ -261,8 +273,9 @@
                     <div class="form-group">
                         <select id="package" class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\"white\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%;">
                             <option value="none" id="packageOptionNone" style="color: black;">-- Chọn gói quan tâm --</option>
-                            <option value="medium" id="packageOptionMedium" style="color: black;">Gói Medium (10.000.000 VNĐ)</option>
+                            <option value="start" id="packageOptionStart" style="color: black;">Gói Start (3.000.000 VNĐ)</option>
                             <option value="basic" id="packageOptionBasic" style="color: black;">Gói Basic (6.000.000 VNĐ)</option>
+                            <option value="premium" id="packageOptionMedium" style="color: black;">Gói Premium (10.000.000 VNĐ)</option>
                         </select>
                     </div>
                     <div class="form-group">
