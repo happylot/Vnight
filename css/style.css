@@ -535,6 +535,40 @@
   margin-right: 0.5rem;
 }
 
+.transfer-card {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(220px, 0.85fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.transfer-card h3 {
+  margin-bottom: 0.8rem;
+  color: var(--color-red-accent);
+  font-size: 1.5rem;
+}
+
+.transfer-card p {
+  margin-bottom: 0.7rem;
+}
+
+.transfer-card strong {
+  color: var(--color-red-accent);
+}
+
+.transfer-qr {
+  display: flex;
+  justify-content: center;
+}
+
+.transfer-qr img {
+  width: min(100%, 280px);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 18px 34px rgba(132, 74, 48, 0.12);
+}
+
 .form-label {
   display: block;
   margin-bottom: 0.65rem;
@@ -726,7 +760,8 @@
 @media (max-width: 1024px) {
   .hero-shell,
   .contact-grid,
-  .privileges-grid {
+  .privileges-grid,
+  .transfer-card {
     grid-template-columns: 1fr;
   }
 
