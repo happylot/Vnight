@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
         vi: {
             htmlLang: 'vi',
             pageTitle: 'Vietnam Night 2026 - JCI ASPAC Niigata',
-            pageDescription: 'Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.',
+            pageDescription: 'Không gian truyền thông để giới thiệu văn hóa Việt Nam và sản phẩm Made in Vietnam tại Niigata, Nhật Bản.',
             ogImageAlt: 'Vietnam Night 2026 hero background',
             navWhy: 'Tại sao',
             navPrivileges: 'Quyền lợi',
@@ -13,69 +13,83 @@ document.addEventListener('DOMContentLoaded', () => {
             heroKicker: 'Thư ngỏ kêu gọi đồng hành cùng',
             heroTitle: 'VIETNAM NIGHT 2026<br>ĐƯA THƯƠNG HIỆU VIỆT VƯƠN TẦM',
             heroRibbon: 'ASPAC JCI 2026 • NIIGATA, JAPAN',
-            heroSubtitle: 'Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.',
+            heroSubtitle: 'Không gian truyền thông nổi bật để giới thiệu văn hóa Việt Nam, sản phẩm Made in Vietnam và câu chuyện thương hiệu tới cộng đồng doanh nhân quốc tế tại Niigata, Nhật Bản.',
             heroLocation: '<i class="fas fa-map-marker-alt"></i> Niigata, Nhật Bản',
             heroHighlight: 'Mỗi chapter một đặc sản, cùng nhau mang tinh hoa Việt Nam đến Nhật Bản.',
             heroCta: 'ĐĂNG KÝ TÀI TRỢ NGAY',
             heroSecondaryCta: 'XEM GÓI TÀI TRỢ',
             heroPosterNote: 'Key visual chủ đạo cho chiến dịch Vietnam Night 2026.',
             whyTitle: 'Tại Sao Nên Đồng Hành?',
-            whyCard1Title: 'Sân Chơi Quốc Tế',
-            whyCard1Body: 'Hội nghị ASPAC JCI quy tụ hàng nghìn doanh nhân, nhà lãnh đạo trẻ và nhà đầu tư từ hơn 40 quốc gia và vùng lãnh thổ.',
-            whyCard2Title: 'Quảng Bá Di Sản',
-            whyCard2Body: 'Vietnam Night tôn vinh bản sắc Việt Nam thông qua âm nhạc, thời trang (Áo dài) và ẩm thực, gắn liền với thương hiệu của bạn.',
-            whyCard3Title: 'Mạng Lưới Toàn Cầu',
-            whyCard3Body: 'JCI là mạng lưới hơn 200.000 thành viên tại 120 quốc gia. Cơ hội quý giá để mở rộng hợp tác toàn cầu.',
+            whyCard1Title: 'Sân Khấu Văn Hóa Quốc Tế',
+            whyCard1Body: 'Vietnam Night là dịp để văn hóa Việt, câu chuyện vùng miền và sản phẩm Made in Vietnam xuất hiện trong một bối cảnh quốc tế giàu cảm xúc.',
+            whyCard2Title: 'Tôn Vinh Bản Sắc Việt',
+            whyCard2Body: 'Âm nhạc, áo dài, đặc sản và sản phẩm địa phương sẽ được kể lại bằng ngôn ngữ hình ảnh gần gũi, giúp thương hiệu gắn với tinh thần Việt Nam đương đại.',
+            whyCard3Title: 'Hiện Diện Đúng Khán Giả',
+            whyCard3Body: 'Chương trình tập trung tạo hiện diện thương hiệu chỉn chu, gần gũi và giàu thiện cảm với cộng đồng doanh nhân quốc tế tham dự ASPAC.',
             privilegesTitle: 'Quyền Lợi Đặc Quyền',
-            privilegeCard1Title: '<i class="fas fa-gem"></i> Gói Tài Trợ Sự Kiện (Hiện kim)',
-            privilegeCard1Item1: '<strong>Tầm nhìn toàn cầu:</strong> tham gia vào network lớn nhất thế giới về lãnh đạo trẻ, hiện diện trên các phương diện truyền thông tại Nhật Bản',
-            privilegeCard1Item2: '<strong>Truyền thông đa phương tiện:</strong> Trình chiếu Video giới thiệu doanh nghiệp (1-3 phút) tại sân khấu chính.',
-            privilegeCard1Item3: '<strong>Vị trí ưu tiên:</strong> Sở hữu gian hàng trưng bày sản phẩm tại khu vực trung tâm và được MC giới thiệu.',
-            privilegeCard2Title: '<i class="fas fa-box-open"></i> Gói Thương Hiệu Đồng Hành',
-            privilegeCard2Item1: '<strong>Trải nghiệm thực tế:</strong> Phát mẫu thử (sampling) hoặc bán sản phẩm trực tiếp cho khách quốc tế.',
-            privilegeCard2Item2: '<strong>Số hóa thương hiệu:</strong> Sở hữu gian hàng trực tuyến trên nền tảng matchingvietnam.com.',
-            privilegeCard2Item3: '<strong>Nội dung độc đáo:</strong> Nhận bộ video review sản phẩm thực hiện tại Nhật Bản.',
+            privilegeCard1Title: '<i class="fas fa-gem"></i> Gói Tài Trợ Truyền Thông Sự Kiện',
+            privilegeCard1Item1: '<strong>Hiện diện thương hiệu:</strong> thương hiệu xuất hiện trong không gian Vietnam Night gắn với tinh thần văn hóa và sản phẩm Việt.',
+            privilegeCard1Item2: '<strong>Nội dung giới thiệu:</strong> có thể trình chiếu video, hình ảnh hoặc câu chuyện thương hiệu trong phần truyền thông của sự kiện.',
+            privilegeCard1Item3: '<strong>Khu vực trưng bày:</strong> ưu tiên sắp xếp vị trí giới thiệu sản phẩm và nhận giới thiệu tổng quan từ chương trình.',
+            privilegeCard2Title: '<i class="fas fa-box-open"></i> Gói Đồng Hành Sản Phẩm Việt',
+            privilegeCard2Item1: '<strong>Trải nghiệm sản phẩm:</strong> trưng bày, giới thiệu, sampling hoặc bán trực tiếp các sản phẩm Made in Vietnam cho khách tham dự.',
+            privilegeCard2Item2: '<strong>Kể chuyện xuất xứ:</strong> nhấn mạnh nguồn gốc địa phương, chất liệu văn hóa và giá trị thương hiệu đằng sau từng sản phẩm.',
+            privilegeCard2Item3: '<strong>Tư liệu truyền thông:</strong> ghi nhận hình ảnh, nội dung trải nghiệm thực tế của sản phẩm trong bối cảnh tại Nhật Bản.',
             supportTitle: 'HỖ TRỢ ĐẶC BIỆT TỪ BAN TỔ CHỨC',
-            supportBody: 'Mức phí tài trợ đã bao gồm <strong>chi phí vận chuyển</strong> hàng hóa sang Nhật Bản. Đội ngũ JCI Vietnam sẽ <strong>hỗ trợ quảng bá trực tiếp</strong> tại gian hàng và phủ sóng truyền thông trên <strong>Fanpage chính thức</strong>.',
+            supportBody: 'Chương trình ưu tiên <strong>quảng bá văn hóa Việt Nam và sản phẩm Made in Vietnam</strong> thông qua không gian trưng bày, truyền thông tại chỗ và hiện diện hình ảnh xuyên suốt Vietnam Night. Đội ngũ JCI Vietnam sẽ hỗ trợ điều phối và giới thiệu sản phẩm tại gian hàng.',
+            shippingNoteTitle: 'Quy định vận chuyển sản phẩm',
+            shippingNoteBody: 'Mỗi đơn vị đăng ký được hỗ trợ tối đa <strong>3kg sản phẩm</strong>. Phần phát sinh vượt mức sẽ tính thêm <strong>500.000 VNĐ/kg</strong> cho chi phí vận chuyển trọn gói.',
             packagesTitle: 'Các Gói Tài Trợ',
-            basicFeature1: '<i class="fas fa-bullhorn"></i> <span><strong>Branding & Quảng bá:</strong> Logo Backdrop chung, 01 bài Fanpage ASPAC 2026, Logo Digital Brochure, 01 gian hàng trên MatchingVietnam.com.</span>',
-            basicFeature2: '<i class="fas fa-store"></i> <span><strong>National Night:</strong> Phát mẫu thử (Sampling) hoặc bán trực tiếp, Logo hiển thị trên màn hình LED.</span>',
-            basicFeature3: '<i class="fas fa-handshake"></i> <span><strong>Kết nối:</strong> Tiếp cận trực tiếp 2000-3000 đại biểu, nhận danh bạ nội bộ JCI Vietnam.</span>',
+            basicFeature1: '<i class="fas fa-bullhorn"></i> <span><strong>Nhận diện thương hiệu:</strong> Logo backdrop chung, 01 bài fanpage ASPAC 2026, logo trong digital brochure.</span>',
+            basicFeature2: '<i class="fas fa-store"></i> <span><strong>Trưng bày sản phẩm:</strong> Sampling hoặc bán trực tiếp trong khu vực Vietnam Night, logo hiển thị trên màn hình LED.</span>',
+            basicFeature3: '<i class="fas fa-seedling"></i> <span><strong>Câu chuyện Made in Vietnam:</strong> Nhấn mạnh nguồn gốc, đặc sản và tinh thần văn hóa của sản phẩm được mang đi giới thiệu.</span>',
             basicCta: 'Chọn Gói Này',
             featuredBadge: 'PREMIUM EXPERIENCE',
-            mediumFeature1: '<i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và bổ sung:</span>',
-            mediumFeature2: '<i class="fas fa-video"></i> <span><strong>Truyền thông video:</strong> 10s trong video intro sự kiện, 01 video khách hàng nước ngoài trải nghiệm sản phẩm.</span>',
-            mediumFeature3: '<i class="fas fa-map-marked-alt"></i> <span><strong>Marketing bản địa:</strong> 08 video review dọc thực hiện tại các thắng cảnh nổi tiếng của Nhật Bản.</span>',
-            mediumFeature4: '<i class="fas fa-user-tie"></i> <span><strong>Hỗ trợ chuyên nghiệp:</strong> 01 MC/PG/PB trực tiếp giới thiệu sản phẩm tại gian hàng.</span>',
-            mediumFeature5: '<i class="fas fa-award"></i> <span><strong>Vinh danh:</strong> Tổ chức vinh danh nhà tài trợ trang trọng tại sự kiện.</span>',
+            mediumFeature1: '<i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và tăng cường chiều sâu truyền thông:</span>',
+            mediumFeature2: '<i class="fas fa-video"></i> <span><strong>Video giới thiệu:</strong> 10 giây trong video intro sự kiện, 01 video trải nghiệm sản phẩm bởi khách quốc tế.</span>',
+            mediumFeature3: '<i class="fas fa-map-marked-alt"></i> <span><strong>Hình ảnh tại Nhật Bản:</strong> 08 video review dọc ghi hình tại các bối cảnh nổi bật để tôn giá trị sản phẩm Việt.</span>',
+            mediumFeature4: '<i class="fas fa-user-tie"></i> <span><strong>Hỗ trợ tại chỗ:</strong> 01 MC/PG/PB hỗ trợ giới thiệu sản phẩm và câu chuyện thương hiệu tại gian hàng.</span>',
+            mediumFeature5: '<i class="fas fa-award"></i> <span><strong>Vinh danh tại sự kiện:</strong> nhấn mạnh vai trò đồng hành cùng hoạt động quảng bá Việt Nam tại ASPAC.</span>',
             mediumCta: 'Chọn Gói Này',
             contactTitle: 'Đồng Hành Cùng Chúng Tôi',
-            contactBody: 'Kính mời Quý Doanh nghiệp cùng tạo nên một đêm Vietnam Night bùng nổ tại Nhật Bản, khẳng định vị thế thương hiệu Việt trên trường quốc tế.',
+            contactBody: 'Kính mời Quý Doanh nghiệp cùng tạo nên một đêm Vietnam Night giàu bản sắc tại Nhật Bản, nơi văn hóa Việt Nam và sản phẩm Made in Vietnam được giới thiệu chỉn chu tới bạn bè quốc tế.',
             contactOrg: '<i class="fas fa-building text-gold"></i> Đơn vị tổ chức: JCI Grace',
             contactSponsor: '<i class="fas fa-handshake text-gold"></i> Bảo trợ thông tin: JCI Vietnam',
             contactHotline: '<i class="fas fa-phone text-gold"></i> Hotline: 0909802998',
+            contactMsYen: '<i class="fas fa-phone-volume text-gold"></i> Ms Hải Yến: 096 152 1688',
             contactEmail: '<i class="fas fa-envelope text-gold"></i> Email: ceo@matchingvietnam.com',
             formTitle: 'Đăng Ký Nhận Tư Vấn',
-            placeholderName: 'Tên Doanh Nghiệp / Người liên hệ',
+            placeholderCompany: 'Tên công ty',
+            placeholderName: 'Người liên hệ',
             placeholderPhone: 'Số điện thoại',
             placeholderEmail: 'Email',
+            placeholderIndustry: 'Ngành nghề',
+            placeholderProduct: 'Sản phẩm / dịch vụ chính',
+            placeholderPlannedProducts: 'Sản phẩm dự kiến mang đi là gì',
             packageOptionNone: '-- Chọn gói quan tâm --',
             packageOptionMedium: 'Gói Medium (10.000.000 VNĐ)',
             packageOptionBasic: 'Gói Basic (6.000.000 VNĐ)',
+            connectionGoalsLabel: 'Mong muốn kết nối',
+            connectionGoalSales: 'Bán hàng',
+            connectionGoalInvestor: 'Nhà đầu tư',
+            connectionGoalSupplier: 'Tìm nhà cung cấp',
             submitBtn: 'GỬI THÔNG TIN',
             submitting: 'ĐANG GỬI...',
-            validationError: 'Vui lòng điền Tên và Số điện thoại',
+            validationError: 'Vui lòng điền Tên công ty, Người liên hệ và Số điện thoại.',
             formSuccess: 'Gửi thông tin thành công! Chúng tôi sẽ liên hệ sớm.',
             toastSuccess: 'Thông tin đã được gửi thành công.',
             fallbackError: 'Có lỗi xảy ra, vui lòng thử lại sau.',
             submitError: 'Không gửi được thông tin. Vui lòng thử lại sau.',
+            modalTitleSuccess: 'Đăng ký thành công',
+            modalTitleError: 'Chưa gửi được thông tin',
+            modalAction: 'Đóng',
             footerText: '&copy; 2026 JCI Vietnam. All rights reserved.',
             timestampLocale: 'vi-VN'
         },
         en: {
             htmlLang: 'en',
-            pageTitle: 'Vietnam Night 2026 - Sponsor with JCI ASPAC Niigata',
-            pageDescription: 'A prime opportunity to showcase your brand and connect with international business leaders in Niigata, Japan.',
+            pageTitle: 'Vietnam Night 2026 - JCI ASPAC Niigata',
+            pageDescription: 'A cultural showcase for Vietnamese identity and Made in Vietnam products in Niigata, Japan.',
             ogImageAlt: 'Vietnam Night 2026 hero image',
             navWhy: 'Why Us',
             navPrivileges: 'Benefits',
@@ -85,62 +99,76 @@ document.addEventListener('DOMContentLoaded', () => {
             heroKicker: 'An invitation to partner with',
             heroTitle: 'VIETNAM NIGHT 2026<br>TAKE VIETNAMESE BRANDS FURTHER',
             heroRibbon: 'ASPAC JCI 2026 • NIIGATA, JAPAN',
-            heroSubtitle: 'A prime opportunity to showcase your products and build cross-border business connections with international delegates in Niigata, Japan.',
+            heroSubtitle: 'A curated communication platform to present Vietnamese culture, Made in Vietnam products, and authentic brand stories to the international ASPAC audience in Niigata, Japan.',
             heroLocation: '<i class="fas fa-map-marker-alt"></i> Niigata, Japan',
             heroHighlight: 'Each chapter brings a specialty. Together we bring the best of Vietnam to Japan.',
-            heroCta: 'BECOME A SPONSOR',
+            heroCta: 'REGISTER TO SPONSOR',
             heroSecondaryCta: 'VIEW PACKAGES',
             heroPosterNote: 'Campaign key visual for Vietnam Night 2026.',
-            whyTitle: 'Why Partner With Us?',
-            whyCard1Title: 'International Stage',
-            whyCard1Body: 'JCI ASPAC gathers thousands of entrepreneurs, young leaders, and investors from more than 40 countries and territories.',
-            whyCard2Title: 'Culture Meets Branding',
-            whyCard2Body: 'Vietnam Night celebrates Vietnamese identity through music, fashion, and cuisine, creating a memorable brand experience for your company.',
-            whyCard3Title: 'Global Network',
-            whyCard3Body: 'JCI connects more than 200,000 members in 120 countries, giving your business a strong platform for international partnerships.',
+            whyTitle: 'Why Join Vietnam Night?',
+            whyCard1Title: 'An International Cultural Stage',
+            whyCard1Body: 'Vietnam Night creates a meaningful setting where Vietnamese culture, regional stories, and Made in Vietnam products can be presented with emotion and identity.',
+            whyCard2Title: 'Celebrate Vietnamese Identity',
+            whyCard2Body: 'Music, ao dai, local specialties, and product stories help brands connect with a contemporary and memorable image of Vietnam.',
+            whyCard3Title: 'Audience Fit Over Hype',
+            whyCard3Body: 'The program focuses on building thoughtful brand presence and goodwill with international delegates attending ASPAC.',
             privilegesTitle: 'Sponsor Advantages',
-            privilegeCard1Title: '<i class="fas fa-gem"></i> Event Sponsorship Package (Cash)',
-            privilegeCard1Item1: '<strong>Global visibility:</strong> Join the world’s largest young leadership network and gain communication exposure in Japan.',
-            privilegeCard1Item2: '<strong>Multimedia promotion:</strong> Present a 1-3 minute company video on the main event stage.',
-            privilegeCard1Item3: '<strong>Priority placement:</strong> Secure a premium booth in the central area and receive on-stage MC mentions.',
-            privilegeCard2Title: '<i class="fas fa-box-open"></i> Brand Partnership Package',
-            privilegeCard2Item1: '<strong>Hands-on sampling:</strong> Offer trial products or direct sales to international guests.',
-            privilegeCard2Item2: '<strong>Digital brand presence:</strong> Own an online showcase booth on matchingvietnam.com.',
-            privilegeCard2Item3: '<strong>Original content:</strong> Receive a set of product review videos produced in Japan.',
+            privilegeCard1Title: '<i class="fas fa-gem"></i> Event Communication Sponsorship',
+            privilegeCard1Item1: '<strong>Brand presence:</strong> your brand appears inside Vietnam Night with strong links to Vietnamese culture and products.',
+            privilegeCard1Item2: '<strong>Storytelling content:</strong> videos, visuals, or brand narratives can be included in the event communication flow.',
+            privilegeCard1Item3: '<strong>Display priority:</strong> priority placement for product showcase and general introduction by the program.',
+            privilegeCard2Title: '<i class="fas fa-box-open"></i> Vietnamese Product Partnership',
+            privilegeCard2Item1: '<strong>Product experience:</strong> display, sampling, or direct selling of Made in Vietnam products for international attendees.',
+            privilegeCard2Item2: '<strong>Origin storytelling:</strong> highlight local roots, cultural value, and the story behind each product.',
+            privilegeCard2Item3: '<strong>Communication assets:</strong> capture product experience content in the context of Japan.',
             supportTitle: 'SPECIAL SUPPORT FROM THE ORGANIZING TEAM',
-            supportBody: 'The sponsorship fee already includes <strong>shipping support</strong> for product displays to Japan. The JCI Vietnam team will provide <strong>on-site promotion support</strong> at your booth and amplify your brand across the <strong>official fanpage</strong>.',
+            supportBody: 'The program prioritizes <strong>Vietnamese culture and Made in Vietnam products</strong> through display spaces, live communication support, and a strong visual presence throughout Vietnam Night. The JCI Vietnam team will help coordinate and introduce products on-site.',
+            shippingNoteTitle: 'Product shipping policy',
+            shippingNoteBody: 'Each registered participant is supported for up to <strong>3kg of products</strong>. Any excess weight will be charged at <strong>500,000 VND/kg</strong> for full-service shipping.',
             packagesTitle: 'Sponsorship Packages',
-            basicFeature1: '<i class="fas fa-bullhorn"></i> <span><strong>Branding & promotion:</strong> Shared backdrop logo, 1 ASPAC 2026 fanpage post, logo placement in the digital brochure, and 1 booth on MatchingVietnam.com.</span>',
-            basicFeature2: '<i class="fas fa-store"></i> <span><strong>National Night:</strong> Sampling or direct sales at the venue, plus logo visibility on the LED screen.</span>',
-            basicFeature3: '<i class="fas fa-handshake"></i> <span><strong>Networking:</strong> Reach 2,000-3,000 delegates directly and access the internal JCI Vietnam contact list.</span>',
+            basicFeature1: '<i class="fas fa-bullhorn"></i> <span><strong>Brand visibility:</strong> shared backdrop logo, 1 ASPAC 2026 fanpage post, and logo placement in the digital brochure.</span>',
+            basicFeature2: '<i class="fas fa-store"></i> <span><strong>Product showcase:</strong> sampling or direct sales within the Vietnam Night area, plus logo visibility on the LED screen.</span>',
+            basicFeature3: '<i class="fas fa-seedling"></i> <span><strong>Made in Vietnam storytelling:</strong> communicate the origin, specialty value, and cultural spirit behind the products you bring.</span>',
             basicCta: 'Choose This Package',
             featuredBadge: 'PREMIUM EXPERIENCE',
-            mediumFeature1: '<i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Everything in BASIC</strong> plus the following upgrades:</span>',
-            mediumFeature2: '<i class="fas fa-video"></i> <span><strong>Video communication:</strong> 10 seconds in the event intro video and 1 testimonial video with international customers trying your product.</span>',
-            mediumFeature3: '<i class="fas fa-map-marked-alt"></i> <span><strong>Local market content:</strong> 8 vertical review videos filmed at iconic destinations across Japan.</span>',
-            mediumFeature4: '<i class="fas fa-user-tie"></i> <span><strong>Professional support:</strong> 1 MC/PG/PB to present and introduce your products at the booth.</span>',
-            mediumFeature5: '<i class="fas fa-award"></i> <span><strong>Recognition:</strong> Formal sponsor appreciation during the event program.</span>',
+            mediumFeature1: '<i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Everything in BASIC</strong> with deeper communication support:</span>',
+            mediumFeature2: '<i class="fas fa-video"></i> <span><strong>Video content:</strong> 10 seconds in the event intro video and 1 product-experience video with international guests.</span>',
+            mediumFeature3: '<i class="fas fa-map-marked-alt"></i> <span><strong>Japan-based imagery:</strong> 8 vertical review videos filmed in strong local backdrops to elevate Vietnamese product value.</span>',
+            mediumFeature4: '<i class="fas fa-user-tie"></i> <span><strong>On-site support:</strong> 1 MC/PG/PB to help present the product and brand story at your booth.</span>',
+            mediumFeature5: '<i class="fas fa-award"></i> <span><strong>Recognition at the event:</strong> your partnership is positioned as support for promoting Vietnam at ASPAC.</span>',
             mediumCta: 'Choose This Package',
             contactTitle: 'Partner With Us',
-            contactBody: 'We invite your company to help create an unforgettable Vietnam Night in Japan and elevate Vietnamese brands on the international stage.',
+            contactBody: 'We welcome your company to help shape a culturally rich Vietnam Night in Japan, where Vietnamese culture and Made in Vietnam products are introduced with care to international friends.',
             contactOrg: '<i class="fas fa-building text-gold"></i> Organizer: JCI Grace',
             contactSponsor: '<i class="fas fa-handshake text-gold"></i> Information Sponsor: JCI Vietnam',
             contactHotline: '<i class="fas fa-phone text-gold"></i> Hotline: 0909802998',
+            contactMsYen: '<i class="fas fa-phone-volume text-gold"></i> Ms Hai Yen: 096 152 1688',
             contactEmail: '<i class="fas fa-envelope text-gold"></i> Email: ceo@matchingvietnam.com',
             formTitle: 'Request Sponsorship Consultation',
-            placeholderName: 'Company name / Contact person',
+            placeholderCompany: 'Company name',
+            placeholderName: 'Contact person',
             placeholderPhone: 'Phone number',
             placeholderEmail: 'Email',
+            placeholderIndustry: 'Industry',
+            placeholderProduct: 'Main product / service',
+            placeholderPlannedProducts: 'What products are you planning to bring?',
             packageOptionNone: '-- Select a package of interest --',
             packageOptionMedium: 'Medium Package (10,000,000 VND)',
             packageOptionBasic: 'Basic Package (6,000,000 VND)',
+            connectionGoalsLabel: 'Connection goals',
+            connectionGoalSales: 'Sales',
+            connectionGoalInvestor: 'Investors',
+            connectionGoalSupplier: 'Find suppliers',
             submitBtn: 'SUBMIT INFORMATION',
             submitting: 'SENDING...',
-            validationError: 'Please fill in your name and phone number.',
+            validationError: 'Please fill in company name, contact person, and phone number.',
             formSuccess: 'Your information has been sent successfully. We will contact you soon.',
             toastSuccess: 'Submission sent successfully.',
             fallbackError: 'Something went wrong. Please try again later.',
             submitError: 'Unable to send your information. Please try again later.',
+            modalTitleSuccess: 'Submission successful',
+            modalTitleError: 'Submission failed',
+            modalAction: 'Close',
             footerText: '&copy; 2026 JCI Vietnam. All rights reserved.',
             timestampLocale: 'en-US'
         }
@@ -179,6 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
         privilegeCard2Item3: 'html',
         supportTitle: 'text',
         supportBody: 'html',
+        shippingNoteTitle: 'text',
+        shippingNoteBody: 'html',
         packagesTitle: 'text',
         basicFeature1: 'html',
         basicFeature2: 'html',
@@ -196,12 +226,19 @@ document.addEventListener('DOMContentLoaded', () => {
         contactOrg: 'html',
         contactSponsor: 'html',
         contactHotline: 'html',
+        contactMsYen: 'html',
         contactEmail: 'html',
         formTitle: 'text',
         packageOptionNone: 'text',
         packageOptionMedium: 'text',
         packageOptionBasic: 'text',
+        connectionGoalsLabel: 'text',
+        connectionGoalSales: 'text',
+        connectionGoalInvestor: 'text',
+        connectionGoalSupplier: 'text',
         submitBtn: 'text',
+        resultModalTitle: 'text',
+        resultModalAction: 'text',
         footerText: 'html'
     };
 
@@ -212,6 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const submitBtn = document.getElementById('submitBtn');
     const formMessage = document.getElementById('formMessage');
     const toastNotification = document.getElementById('toastNotification');
+    const resultModal = document.getElementById('resultModal');
+    const resultModalBackdrop = document.getElementById('resultModalBackdrop');
+    const resultModalCard = resultModal.querySelector('.result-modal-card');
+    const resultModalClose = document.getElementById('resultModalClose');
+    const resultModalTitle = document.getElementById('resultModalTitle');
+    const resultModalMessage = document.getElementById('resultModalMessage');
+    const resultModalAction = document.getElementById('resultModalAction');
+    const resultModalIcon = document.getElementById('resultModalIcon');
     const langButtons = document.querySelectorAll('.lang-btn');
     const metaDescription = document.getElementById('metaDescription');
     const ogTitle = document.getElementById('ogTitle');
@@ -219,10 +264,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const ogImageAlt = document.getElementById('ogImageAlt');
     const twitterTitle = document.getElementById('twitterTitle');
     const twitterDescription = document.getElementById('twitterDescription');
+    const companyInput = document.getElementById('company');
     const nameInput = document.getElementById('name');
     const phoneInput = document.getElementById('phone');
     const emailInput = document.getElementById('email');
+    const industryInput = document.getElementById('industry');
+    const productInput = document.getElementById('product');
     const packageSelect = document.getElementById('package');
+    const plannedProductsInput = document.getElementById('plannedProducts');
+    const connectionGoalInputs = document.querySelectorAll('input[name="connectionGoals"]');
 
     const LEAD_API_ENDPOINT = '/api/lead.php';
     const LANGUAGE_STORAGE_KEY = 'aspac2026-language';
@@ -296,6 +346,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    [resultModalBackdrop, resultModalClose, resultModalAction].forEach((element) => {
+        element.addEventListener('click', closeResultModal);
+    });
+
     leadForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -307,15 +361,22 @@ document.addEventListener('DOMContentLoaded', () => {
         formMessage.className = 'form-message';
 
         const formData = {
-            name: nameInput.value,
-            phone: phoneInput.value,
-            email: emailInput.value,
+            company: companyInput.value.trim(),
+            name: nameInput.value.trim(),
+            phone: phoneInput.value.trim(),
+            email: emailInput.value.trim(),
+            industry: industryInput.value.trim(),
+            product: productInput.value.trim(),
             package: packageSelect.options[packageSelect.selectedIndex].text,
+            connectionGoals: Array.from(connectionGoalInputs)
+                .filter((input) => input.checked)
+                .map((input) => input.value),
+            plannedProducts: plannedProductsInput.value.trim(),
             timestamp: new Date().toLocaleString(strings.timestampLocale)
         };
 
         try {
-            if (!formData.name || !formData.phone) {
+            if (!formData.company || !formData.name || !formData.phone) {
                 throw new Error(strings.validationError);
             }
 
@@ -323,12 +384,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             showMessage(strings.formSuccess, 'success');
             showToast(strings.toastSuccess, 'success');
+            showResultModal(strings.modalTitleSuccess, strings.formSuccess, 'success');
             leadForm.reset();
         } catch (error) {
             console.error('Lỗi submit form:', error);
             const errorMessage = error.message || strings.fallbackError;
             showMessage(errorMessage, 'error');
             showToast(errorMessage, 'error');
+            showResultModal(strings.modalTitleError, errorMessage, 'error');
         } finally {
             submitBtn.innerText = originalBtnText;
             submitBtn.disabled = false;
@@ -362,9 +425,16 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        companyInput.placeholder = strings.placeholderCompany;
         nameInput.placeholder = strings.placeholderName;
         phoneInput.placeholder = strings.placeholderPhone;
         emailInput.placeholder = strings.placeholderEmail;
+        industryInput.placeholder = strings.placeholderIndustry;
+        productInput.placeholder = strings.placeholderProduct;
+        plannedProductsInput.placeholder = strings.placeholderPlannedProducts;
+        connectionGoalInputs[0].value = strings.connectionGoalSales;
+        connectionGoalInputs[1].value = strings.connectionGoalInvestor;
+        connectionGoalInputs[2].value = strings.connectionGoalSupplier;
 
         langButtons.forEach((button) => {
             button.classList.toggle('is-active', button.dataset.lang === language);
@@ -388,6 +458,23 @@ document.addEventListener('DOMContentLoaded', () => {
         toastTimeoutId = window.setTimeout(() => {
             toastNotification.className = 'toast-notification';
         }, 4200);
+    }
+
+    function showResultModal(title, message, type) {
+        resultModalTitle.textContent = title;
+        resultModalMessage.textContent = message;
+        resultModalAction.textContent = translations[currentLanguage].modalAction;
+        resultModalCard.classList.toggle('is-error', type === 'error');
+        resultModalIcon.innerHTML = type === 'error'
+            ? '<i class="fas fa-circle-exclamation"></i>'
+            : '<i class="fas fa-check"></i>';
+        resultModal.classList.add('is-open');
+        resultModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeResultModal() {
+        resultModal.classList.remove('is-open');
+        resultModal.setAttribute('aria-hidden', 'true');
     }
 
     async function submitLead(data) {

@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vietnam Night 2026 - JCI ASPAC Niigata</title>
-    <meta name="description" id="metaDescription" content="Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.">
+    <meta name="description" id="metaDescription" content="Không gian truyền thông để giới thiệu văn hóa Việt Nam và sản phẩm Made in Vietnam tại Niigata, Nhật Bản.">
     <link rel="canonical" href="https://aspac2026.jci.vn/">
     <meta property="og:locale" content="vi_VN">
     <meta property="og:type" content="website">
     <meta property="og:title" id="ogTitle" content="Vietnam Night 2026 - JCI ASPAC Niigata">
-    <meta property="og:description" id="ogDescription" content="Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.">
+    <meta property="og:description" id="ogDescription" content="Không gian truyền thông để giới thiệu văn hóa Việt Nam và sản phẩm Made in Vietnam tại Niigata, Nhật Bản.">
     <meta property="og:url" content="https://aspac2026.jci.vn/">
     <meta property="og:site_name" content="Vietnam Night 2026">
     <meta property="og:image" content="https://aspac2026.jci.vn/assets/og-thumbnail.jpg">
@@ -20,7 +20,7 @@
     <meta property="og:image:alt" id="ogImageAlt" content="Vietnam Night 2026 hero background">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" id="twitterTitle" content="Vietnam Night 2026 - JCI ASPAC Niigata">
-    <meta name="twitter:description" id="twitterDescription" content="Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.">
+    <meta name="twitter:description" id="twitterDescription" content="Không gian truyền thông để giới thiệu văn hóa Việt Nam và sản phẩm Made in Vietnam tại Niigata, Nhật Bản.">
     <meta name="twitter:image" content="https://aspac2026.jci.vn/assets/og-thumbnail.jpg">
     
     <!-- Google Fonts -->
@@ -37,6 +37,20 @@
 </head>
 <body>
     <div id="toastNotification" class="toast-notification" aria-live="polite" aria-atomic="true"></div>
+    <div class="result-modal" id="resultModal" aria-hidden="true">
+        <div class="result-modal-backdrop" id="resultModalBackdrop"></div>
+        <div class="result-modal-card" role="dialog" aria-modal="true" aria-labelledby="resultModalTitle">
+            <button type="button" class="result-modal-close" id="resultModalClose" aria-label="Close result popup">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="result-modal-icon" id="resultModalIcon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 id="resultModalTitle">Kết quả gửi thông tin</h3>
+            <p id="resultModalMessage">Thông tin của bạn đã được gửi thành công.</p>
+            <button type="button" class="btn btn-primary" id="resultModalAction">Đóng</button>
+        </div>
+    </div>
 	
 	    <!-- Header -->
     <header class="header" id="header">
@@ -69,7 +83,7 @@
                 <div class="hero-kicker" id="heroKicker">Thư ngỏ kêu gọi đồng hành cùng</div>
                 <h1 class="hero-title" id="heroTitle">VIETNAM NIGHT 2026<br>ĐƯA THƯƠNG HIỆU VIỆT VƯƠN TẦM</h1>
                 <div class="hero-ribbon" id="heroRibbon">ASPAC JCI 2026 • NIIGATA, JAPAN</div>
-                <p class="hero-subtitle" id="heroSubtitle">Cơ hội vàng để giới thiệu sản phẩm và kết nối giao thương với hàng nghìn doanh nhân quốc tế tại Niigata, Nhật Bản.</p>
+                <p class="hero-subtitle" id="heroSubtitle">Không gian truyền thông nổi bật để giới thiệu văn hóa Việt Nam, sản phẩm Made in Vietnam và câu chuyện thương hiệu tới cộng đồng doanh nhân quốc tế tại Niigata, Nhật Bản.</p>
                 
                 <div class="hero-meta">
                     <span><i class="far fa-calendar-alt"></i> 13.06.2026</span>
@@ -102,18 +116,18 @@
             <div class="grid-3">
                 <div class="glass-card">
                     <div class="why-icon"><i class="fas fa-globe-asia"></i></div>
-                    <h3 id="whyCard1Title">Sân Chơi Quốc Tế</h3>
-                    <p id="whyCard1Body">Hội nghị ASPAC JCI quy tụ hàng nghìn doanh nhân, nhà lãnh đạo trẻ và nhà đầu tư từ hơn 40 quốc gia và vùng lãnh thổ.</p>
+                    <h3 id="whyCard1Title">Sân Khấu Văn Hóa Quốc Tế</h3>
+                    <p id="whyCard1Body">Vietnam Night là dịp để văn hóa Việt, câu chuyện vùng miền và sản phẩm Made in Vietnam xuất hiện trong một bối cảnh quốc tế giàu cảm xúc.</p>
                 </div>
                 <div class="glass-card">
                     <div class="why-icon"><i class="fas fa-crown"></i></div>
-                    <h3 id="whyCard2Title">Quảng Bá Di Sản</h3>
-                    <p id="whyCard2Body">Vietnam Night tôn vinh bản sắc Việt Nam thông qua âm nhạc, thời trang (Áo dài) và ẩm thực, gắn liền với thương hiệu của bạn.</p>
+                    <h3 id="whyCard2Title">Tôn Vinh Bản Sắc Việt</h3>
+                    <p id="whyCard2Body">Âm nhạc, áo dài, đặc sản và sản phẩm địa phương sẽ được kể lại bằng ngôn ngữ hình ảnh gần gũi, giúp thương hiệu gắn với tinh thần Việt Nam đương đại.</p>
                 </div>
                 <div class="glass-card">
                     <div class="why-icon"><i class="fas fa-network-wired"></i></div>
-                    <h3 id="whyCard3Title">Mạng Lưới Toàn Cầu</h3>
-                    <p id="whyCard3Body">JCI là mạng lưới hơn 200.000 thành viên tại 120 quốc gia. Cơ hội quý giá để mở rộng hợp tác toàn cầu.</p>
+                    <h3 id="whyCard3Title">Hiện Diện Đúng Khán Giả</h3>
+                    <p id="whyCard3Body">Chương trình tập trung tạo hiện diện thương hiệu chỉn chu, gần gũi và giàu thiện cảm với cộng đồng doanh nhân quốc tế tham dự ASPAC.</p>
                 </div>
             </div>
         </div>
@@ -125,19 +139,19 @@
             <h2 class="section-title" id="privilegesTitle">Quyền Lợi Đặc Quyền</h2>
             <div class="privileges-grid">
                 <div class="glass-card">
-                    <h3 class="text-gold" style="margin-bottom: 1.5rem;" id="privilegeCard1Title"><i class="fas fa-gem"></i> Gói Tài Trợ Sự Kiện (Hiện kim)</h3>
+                    <h3 class="text-gold" style="margin-bottom: 1.5rem;" id="privilegeCard1Title"><i class="fas fa-gem"></i> Gói Tài Trợ Truyền Thông Sự Kiện</h3>
                     <ul class="privilege-list">
-                        <li id="privilegeCard1Item1"><strong>Tầm nhìn toàn cầu:</strong> tham gia vào network lớn nhất thế giới về lãnh đạo trẻ, hiện diện trên các phương diện truyền thông tại Nhật Bản</li>
-                        <li id="privilegeCard1Item2"><strong>Truyền thông đa phương tiện:</strong> Trình chiếu Video giới thiệu doanh nghiệp (1-3 phút) tại sân khấu chính.</li>
-                        <li id="privilegeCard1Item3"><strong>Vị trí ưu tiên:</strong> Sở hữu gian hàng trưng bày sản phẩm tại khu vực trung tâm và được MC giới thiệu.</li>
+                        <li id="privilegeCard1Item1"><strong>Hiện diện thương hiệu:</strong> thương hiệu xuất hiện trong không gian Vietnam Night gắn với tinh thần văn hóa và sản phẩm Việt.</li>
+                        <li id="privilegeCard1Item2"><strong>Nội dung giới thiệu:</strong> có thể trình chiếu video, hình ảnh hoặc câu chuyện thương hiệu trong phần truyền thông của sự kiện.</li>
+                        <li id="privilegeCard1Item3"><strong>Khu vực trưng bày:</strong> ưu tiên sắp xếp vị trí giới thiệu sản phẩm và nhận giới thiệu tổng quan từ chương trình.</li>
                     </ul>
                 </div>
                 <div class="glass-card">
-                    <h3 class="text-gold" style="margin-bottom: 1.5rem;" id="privilegeCard2Title"><i class="fas fa-box-open"></i> Gói Thương Hiệu Đồng Hành</h3>
+                    <h3 class="text-gold" style="margin-bottom: 1.5rem;" id="privilegeCard2Title"><i class="fas fa-box-open"></i> Gói Đồng Hành Sản Phẩm Việt</h3>
                     <ul class="privilege-list">
-                        <li id="privilegeCard2Item1"><strong>Trải nghiệm thực tế:</strong> Phát mẫu thử (sampling) hoặc bán sản phẩm trực tiếp cho khách quốc tế.</li>
-                        <li id="privilegeCard2Item2"><strong>Số hóa thương hiệu:</strong> Sở hữu gian hàng trực tuyến trên nền tảng matchingvietnam.com.</li>
-                        <li id="privilegeCard2Item3"><strong>Nội dung độc đáo:</strong> Nhận bộ video review sản phẩm thực hiện tại Nhật Bản.</li>
+                        <li id="privilegeCard2Item1"><strong>Trải nghiệm sản phẩm:</strong> trưng bày, giới thiệu, sampling hoặc bán trực tiếp các sản phẩm Made in Vietnam cho khách tham dự.</li>
+                        <li id="privilegeCard2Item2"><strong>Kể chuyện xuất xứ:</strong> nhấn mạnh nguồn gốc địa phương, chất liệu văn hóa và giá trị thương hiệu đằng sau từng sản phẩm.</li>
+                        <li id="privilegeCard2Item3"><strong>Tư liệu truyền thông:</strong> ghi nhận hình ảnh, nội dung trải nghiệm thực tế của sản phẩm trong bối cảnh tại Nhật Bản.</li>
                     </ul>
                 </div>
             </div>
@@ -149,8 +163,12 @@
         <div class="container text-center">
             <h3 class="text-gold" style="margin-bottom: 1rem;" id="supportTitle">HỖ TRỢ ĐẶC BIỆT TỪ BAN TỔ CHỨC</h3>
             <p style="color: var(--color-text-secondary); max-width: 800px; margin: 0 auto;" id="supportBody">
-                Mức phí tài trợ đã bao gồm <strong>chi phí vận chuyển</strong> hàng hóa sang Nhật Bản. Đội ngũ JCI Vietnam sẽ <strong>hỗ trợ quảng bá trực tiếp</strong> tại gian hàng và phủ sóng truyền thông trên <strong>Fanpage chính thức</strong>.
+                Chương trình ưu tiên <strong>quảng bá văn hóa Việt Nam và sản phẩm Made in Vietnam</strong> thông qua không gian trưng bày, truyền thông tại chỗ và hiện diện hình ảnh xuyên suốt Vietnam Night. Đội ngũ JCI Vietnam sẽ hỗ trợ điều phối và giới thiệu sản phẩm tại gian hàng.
             </p>
+            <div class="shipping-note glass-card" id="shippingNote">
+                <h4 id="shippingNoteTitle">Quy định vận chuyển sản phẩm</h4>
+                <p id="shippingNoteBody">Mỗi đơn vị đăng ký được hỗ trợ tối đa <strong>3kg sản phẩm</strong>. Phần phát sinh vượt mức sẽ tính thêm <strong>500.000 VNĐ/kg</strong> cho chi phí vận chuyển trọn gói.</p>
+            </div>
         </div>
     </section>
 
@@ -165,9 +183,9 @@
                     <h3 class="package-name">BASIC</h3>
                     <div class="package-price">6.000.000<span> VNĐ</span></div>
                     <ul class="package-features">
-                        <li id="basicFeature1"><i class="fas fa-bullhorn"></i> <span><strong>Branding & Quảng bá:</strong> Logo Backdrop chung, 01 bài Fanpage ASPAC 2026, Logo Digital Brochure, 01 gian hàng trên MatchingVietnam.com.</span></li>
-                        <li id="basicFeature2"><i class="fas fa-store"></i> <span><strong>National Night:</strong> Phát mẫu thử (Sampling) hoặc bán trực tiếp, Logo hiển thị trên màn hình LED.</span></li>
-                        <li id="basicFeature3"><i class="fas fa-handshake"></i> <span><strong>Kết nối:</strong> Tiếp cận trực tiếp 2000-3000 đại biểu, nhận danh bạ nội bộ JCI Vietnam.</span></li>
+                        <li id="basicFeature1"><i class="fas fa-bullhorn"></i> <span><strong>Nhận diện thương hiệu:</strong> Logo backdrop chung, 01 bài fanpage ASPAC 2026, logo trong digital brochure.</span></li>
+                        <li id="basicFeature2"><i class="fas fa-store"></i> <span><strong>Trưng bày sản phẩm:</strong> Sampling hoặc bán trực tiếp trong khu vực Vietnam Night, logo hiển thị trên màn hình LED.</span></li>
+                        <li id="basicFeature3"><i class="fas fa-seedling"></i> <span><strong>Câu chuyện Made in Vietnam:</strong> Nhấn mạnh nguồn gốc, đặc sản và tinh thần văn hóa của sản phẩm được mang đi giới thiệu.</span></li>
                     </ul>
                     <a href="#contact" class="btn btn-outline" id="basicCta">Chọn Gói Này</a>
                 </div>
@@ -178,11 +196,11 @@
                     <h3 class="package-name" style="color: #ff9900;">MEDIUM</h3>
                     <div class="package-price" style="color: var(--color-gold-main);">10.000.000<span> VNĐ</span></div>
                     <ul class="package-features">
-                        <li id="mediumFeature1"><i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và bổ sung:</span></li>
-                        <li id="mediumFeature2"><i class="fas fa-video"></i> <span><strong>Truyền thông video:</strong> 10s trong video intro sự kiện, 01 video khách hàng nước ngoài trải nghiệm sản phẩm.</span></li>
-                        <li id="mediumFeature3"><i class="fas fa-map-marked-alt"></i> <span><strong>Marketing bản địa:</strong> 08 video review dọc thực hiện tại các thắng cảnh nổi tiếng của Nhật Bản.</span></li>
-                        <li id="mediumFeature4"><i class="fas fa-user-tie"></i> <span><strong>Hỗ trợ chuyên nghiệp:</strong> 01 MC/PG/PB trực tiếp giới thiệu sản phẩm tại gian hàng.</span></li>
-                        <li id="mediumFeature5"><i class="fas fa-award"></i> <span><strong>Vinh danh:</strong> Tổ chức vinh danh nhà tài trợ trang trọng tại sự kiện.</span></li>
+                        <li id="mediumFeature1"><i class="fas fa-star" style="color: #ff9900;"></i> <span><strong>Bao gồm toàn bộ quyền lợi gói BASIC</strong> và tăng cường chiều sâu truyền thông:</span></li>
+                        <li id="mediumFeature2"><i class="fas fa-video"></i> <span><strong>Video giới thiệu:</strong> 10 giây trong video intro sự kiện, 01 video trải nghiệm sản phẩm bởi khách quốc tế.</span></li>
+                        <li id="mediumFeature3"><i class="fas fa-map-marked-alt"></i> <span><strong>Hình ảnh tại Nhật Bản:</strong> 08 video review dọc ghi hình tại các bối cảnh nổi bật để tôn giá trị sản phẩm Việt.</span></li>
+                        <li id="mediumFeature4"><i class="fas fa-user-tie"></i> <span><strong>Hỗ trợ tại chỗ:</strong> 01 MC/PG/PB hỗ trợ giới thiệu sản phẩm và câu chuyện thương hiệu tại gian hàng.</span></li>
+                        <li id="mediumFeature5"><i class="fas fa-award"></i> <span><strong>Vinh danh tại sự kiện:</strong> nhấn mạnh vai trò đồng hành cùng hoạt động quảng bá Việt Nam tại ASPAC.</span></li>
                     </ul>
                     <a href="#contact" class="btn btn-primary" id="mediumCta">Chọn Gói Này</a>
                 </div>
@@ -197,11 +215,12 @@
             <div class="contact-info">
                 <h2 class="section-title" style="text-align: left; left: 0; transform: none;" id="contactTitle">Đồng Hành Cùng Chúng Tôi</h2>
                 <style> .contact-info .section-title::after { left: 0; transform: none; } </style>
-                <p id="contactBody">Kính mời Quý Doanh nghiệp cùng tạo nên một đêm Vietnam Night bùng nổ tại Nhật Bản, khẳng định vị thế thương hiệu Việt trên trường quốc tế.</p>
+                <p id="contactBody">Kính mời Quý Doanh nghiệp cùng tạo nên một đêm Vietnam Night giàu bản sắc tại Nhật Bản, nơi văn hóa Việt Nam và sản phẩm Made in Vietnam được giới thiệu chỉn chu tới bạn bè quốc tế.</p>
                 <div style="margin-top: 2rem;">
                     <p id="contactOrg"><i class="fas fa-building text-gold"></i> Đơn vị tổ chức: JCI Grace</p>
                     <p id="contactSponsor"><i class="fas fa-handshake text-gold"></i> Bảo trợ thông tin: JCI Vietnam</p>
                     <p id="contactHotline"><i class="fas fa-phone text-gold"></i> Hotline: 0909802998</p>
+                    <p id="contactMsYen"><i class="fas fa-phone-volume text-gold"></i> Ms Hải Yến: 096 152 1688</p>
                     <p id="contactEmail"><i class="fas fa-envelope text-gold"></i> Email: ceo@matchingvietnam.com</p>
                 </div>
             </div>
@@ -210,7 +229,10 @@
                 <h3 style="margin-bottom: 1.5rem;" id="formTitle">Đăng Ký Nhận Tư Vấn</h3>
                 <form id="leadForm">
                     <div class="form-group">
-                        <input type="text" id="name" class="form-control" placeholder="Tên Doanh Nghiệp / Người liên hệ" required>
+                        <input type="text" id="company" class="form-control" placeholder="Tên công ty" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="name" class="form-control" placeholder="Người liên hệ" required>
                     </div>
                     <div class="form-group">
                         <input type="tel" id="phone" class="form-control" placeholder="Số điện thoại" required>
@@ -219,11 +241,28 @@
                         <input type="email" id="email" class="form-control" placeholder="Email">
                     </div>
                     <div class="form-group">
+                        <input type="text" id="industry" class="form-control" placeholder="Ngành nghề">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="product" class="form-control" placeholder="Sản phẩm / dịch vụ chính">
+                    </div>
+                    <div class="form-group">
                         <select id="package" class="form-control" style="appearance: none; background-image: url('data:image/svg+xml;utf8,<svg fill=\"white\" height=\"24\" viewBox=\"0 0 24 24\" width=\"24\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M7 10l5 5 5-5z\"/></svg>'); background-repeat: no-repeat; background-position-x: 95%; background-position-y: 50%;">
                             <option value="none" id="packageOptionNone" style="color: black;">-- Chọn gói quan tâm --</option>
                             <option value="medium" id="packageOptionMedium" style="color: black;">Gói Medium (10.000.000 VNĐ)</option>
                             <option value="basic" id="packageOptionBasic" style="color: black;">Gói Basic (6.000.000 VNĐ)</option>
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" id="connectionGoalsLabel">Mong muốn kết nối</label>
+                        <div class="checkbox-group" id="connectionGoalsGroup">
+                            <label class="checkbox-pill"><input type="checkbox" name="connectionGoals" value="Bán hàng"> <span id="connectionGoalSales">Bán hàng</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" name="connectionGoals" value="Nhà đầu tư"> <span id="connectionGoalInvestor">Nhà đầu tư</span></label>
+                            <label class="checkbox-pill"><input type="checkbox" name="connectionGoals" value="Tìm nhà cung cấp"> <span id="connectionGoalSupplier">Tìm nhà cung cấp</span></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="plannedProducts" class="form-control form-textarea" placeholder="Sản phẩm dự kiến mang đi là gì"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="submitBtn">GỬI THÔNG TIN</button>
                     

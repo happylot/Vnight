@@ -199,7 +199,7 @@
 
 .hero-title {
   margin-bottom: 0.8rem;
-  font-size: clamp(4rem, 8vw, 7rem);
+  font-size: 4rem;
   line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -499,6 +499,22 @@
   color: var(--color-red-accent);
 }
 
+.shipping-note {
+  max-width: 860px;
+  margin: 1.5rem auto 0;
+  text-align: left;
+}
+
+.shipping-note h4 {
+  margin-bottom: 0.6rem;
+  color: var(--color-red-accent);
+  font-size: 1.4rem;
+}
+
+.shipping-note p {
+  color: var(--color-text-secondary);
+}
+
 .contact-section {
   background: linear-gradient(180deg, rgba(255, 249, 238, 0.68), rgba(251, 242, 223, 0.95));
   border-top: 1px solid rgba(171, 31, 37, 0.08);
@@ -517,6 +533,49 @@
 
 .contact-info p i {
   margin-right: 0.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-red-accent);
+}
+
+.checkbox-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.checkbox-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(171, 31, 37, 0.1);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+}
+
+.checkbox-pill:hover {
+  transform: translateY(-1px);
+  border-color: rgba(210, 155, 44, 0.5);
+  box-shadow: 0 12px 22px rgba(132, 74, 48, 0.08);
+}
+
+.checkbox-pill input {
+  accent-color: var(--color-red-accent);
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 .footer {
@@ -580,6 +639,78 @@
 
 .toast-notification.error {
   border-color: rgba(171, 31, 37, 0.18);
+}
+
+.result-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: none;
+}
+
+.result-modal.is-open {
+  display: block;
+}
+
+.result-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(75, 31, 24, 0.34);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.result-modal-card {
+  position: relative;
+  width: min(480px, calc(100vw - 32px));
+  margin: 10vh auto 0;
+  padding: 2rem 1.6rem 1.5rem;
+  border-radius: 30px;
+  background: rgba(255, 251, 245, 0.98);
+  border: 1px solid rgba(171, 31, 37, 0.12);
+  box-shadow: 0 28px 60px rgba(75, 31, 24, 0.22);
+  text-align: center;
+}
+
+.result-modal-close {
+  position: absolute;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(171, 31, 37, 0.08);
+  color: var(--color-red-accent);
+  cursor: pointer;
+}
+
+.result-modal-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  background: rgba(40, 95, 61, 0.12);
+  color: var(--color-green-accent);
+}
+
+.result-modal-card.is-error .result-modal-icon {
+  background: rgba(171, 31, 37, 0.1);
+  color: var(--color-red-accent);
+}
+
+.result-modal-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--color-red-accent);
+  font-size: 2rem;
+}
+
+.result-modal-card p {
+  margin-bottom: 1.25rem;
+  color: var(--color-text-secondary);
 }
 
 .mobile-menu-btn {
@@ -658,7 +789,7 @@
   }
 
   .hero-title {
-    font-size: clamp(2.9rem, 14vw, 4.8rem);
+    font-size: 3rem;
   }
 
   .hero-kicker {
@@ -693,5 +824,10 @@
     left: 16px;
     min-width: 0;
     max-width: none;
+  }
+
+  .result-modal-card {
+    margin-top: 12vh;
+    padding: 1.7rem 1.2rem 1.4rem;
   }
 }

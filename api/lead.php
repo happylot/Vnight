@@ -49,16 +49,30 @@ if (!is_array($payload)) {
 }
 
 $name = trim((string) ($payload['name'] ?? ''));
+$company = trim((string) ($payload['company'] ?? ''));
 $phone = trim((string) ($payload['phone'] ?? ''));
 $email = trim((string) ($payload['email'] ?? ''));
+$industry = trim((string) ($payload['industry'] ?? ''));
+$product = trim((string) ($payload['product'] ?? ''));
 $package = trim((string) ($payload['package'] ?? ''));
+$plannedProducts = trim((string) ($payload['plannedProducts'] ?? ''));
 $timestamp = trim((string) ($payload['timestamp'] ?? ''));
+$connectionGoals = $payload['connectionGoals'] ?? [];
 
-if ($name === '' || $phone === '') {
+if (is_array($connectionGoals)) {
+    $connectionGoals = array_values(array_filter(array_map(
+        static fn ($value) => trim((string) $value),
+        $connectionGoals
+    ), static fn ($value) => $value !== ''));
+} else {
+    $connectionGoals = [];
+}
+
+if ($company === '' || $name === '' || $phone === '') {
     http_response_code(422);
     echo json_encode([
         'ok' => false,
-        'message' => 'Vui lòng điền Tên và Số điện thoại.',
+        'message' => 'Vui lòng điền Tên công ty, Người liên hệ và Số điện thoại.',
     ], JSON_UNESCAPED_UNICODE);
     exit;
 }
@@ -70,10 +84,15 @@ $escape = static function (string $value): string {
 $lines = [
     '🎯 <b>LEAD MỚI - VIETNAM NIGHT 2026</b>',
     '',
+    '- <b>Công ty:</b> ' . $escape($company),
     '- <b>Tên:</b> ' . $escape($name),
     '- <b>SĐT:</b> ' . $escape($phone),
     '- <b>Email:</b> ' . $escape($email !== '' ? $email : 'Không có'),
+    '- <b>Ngành nghề:</b> ' . $escape($industry !== '' ? $industry : 'Không có'),
+    '- <b>Sản phẩm/Dịch vụ:</b> ' . $escape($product !== '' ? $product : 'Không có'),
     '- <b>Gói quan tâm:</b> ' . $escape($package !== '' ? $package : 'Chưa chọn'),
+    '- <b>Mong muốn kết nối:</b> ' . $escape($connectionGoals !== [] ? implode(', ', $connectionGoals) : 'Chưa chọn'),
+    '- <b>Sản phẩm dự kiến mang đi:</b> ' . $escape($plannedProducts !== '' ? $plannedProducts : 'Chưa có thông tin'),
     '- <b>Thời gian:</b> ' . $escape($timestamp !== '' ? $timestamp : date('d/m/Y H:i:s')),
     '- <b>Nguồn:</b> aspac2026.jci.vn',
 ];
