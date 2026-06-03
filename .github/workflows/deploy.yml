@@ -55,7 +55,7 @@ jobs:
           scp -i "$HOME/.ssh/aspac2026_deploy_key" \
             -o StrictHostKeyChecking=no \
             -P "$VPS_PORT" \
-            -r api assets css js index.html showcase.html \
+            -r api assets css js keyvisual.jpg index.html showcase.html \
             "$VPS_USERNAME@$VPS_HOST:$STAGING_PATH/"
 
       - name: Sync release and configure nginx
